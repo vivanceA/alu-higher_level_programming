@@ -1,9 +1,18 @@
 #!/usr/bin/python3
-"""Define a function of matrix multiplication"""
+# function that multiplies 2 matrices
+"""
+    Define 'matrix_mul' function.
+"""
 
 
 def matrix_mul(m_a, m_b):
-    """Multiply two matrices.
+    """
+        Multiply two matrices.
+        Args:
+            m_a (list of lists of ints/floats): The first matrix.
+            m_b (list of lists of ints/floats): The second matrix.
+        Return:
+            new matrix representing the multiplication of m_a by m_b.
     """
 
     if m_a == [] or m_a == [[]]:
@@ -29,9 +38,9 @@ def matrix_mul(m_a, m_b):
         raise TypeError("m_b should contain only integers or floats")
 
     if not all(len(row) == len(m_a[0]) for row in m_a):
-        raise TypeError("each row of m_a must should be of the same size")
+        raise TypeError("each row of m_a must be of the same size")
     if not all(len(row) == len(m_b[0]) for row in m_b):
-        raise TypeError("each row of m_b must should be of the same size")
+        raise TypeError("each row of m_b must be of the same size")
 
     if len(m_a[0]) != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")
@@ -52,5 +61,4 @@ def matrix_mul(m_a, m_b):
                 prod += row[i] * col[i]
             new_row.append(prod)
         new_matrix.append(new_row)
-
     return new_matrix
