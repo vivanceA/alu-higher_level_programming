@@ -1,8 +1,8 @@
 #!/usr/bin/node
-const myObject = {
-    type: 'object',
-    value: 12
-  };
-  console.log(myObject);
-  myObject.value = 89;
-  console.log(myObject);
+function factorial (num) {
+  if (isNaN(num) || num <= 1) {
+    return 1;
+  }
+  return num * factorial(num - 1);
+}
+console.log(factorial(parseInt(process.argv[2])));
